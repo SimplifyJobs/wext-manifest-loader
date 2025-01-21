@@ -73,7 +73,7 @@ yarn add wext-manifest-loader wext-manifest-webpack-plugin --dev
 
 You can easily use this module together with the [`wext-manifest-webpack-plugin`](https://www.npmjs.com/package/wext-manifest-webpack-plugin) to output the `manifest.json` as part of your build process **without** any additional js bundle and with auto rebundling on file change.
 
-**Note:** Make sure you pass a **TARGET_BROWSER** env variable with one of `chrome/firefox/edge/opera` value
+**Note:** Make sure you pass a **TARGET_BROWSER** env variable with one of `chrome/firefox/edge/opera/safari` value
 
 #### Sample manifest with vendor prefixed keys
 
@@ -161,7 +161,8 @@ Vendor prefixed manifest keys allow you to write one `manifest.json` for multipl
   "__chrome__name": "AwesomeChrome",
   "__firefox__name": "AwesomeFirefox",
   "__edge__name": "AwesomeEdge",
-  "__opera__name": "AwesomeOpera"
+  "__opera__name": "AwesomeOpera",
+  "__safari__name": "AwesomeOpera"
 }
 ```
 

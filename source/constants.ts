@@ -10,6 +10,7 @@ export const Browser = {
   FIREFOX: 'firefox',
   OPERA: 'opera',
   EDGE: 'edge',
+  SAFARI: 'safari',
 } as const;
 export type BrowserType = (typeof Browser)[keyof typeof Browser];
 
@@ -18,6 +19,7 @@ export const browserVendors: BrowserType[] = [
   Browser.FIREFOX,
   Browser.OPERA,
   Browser.EDGE,
+  Browser.SAFARI,
 ];
 export const envVariables: string[] = [ENVKeys.DEV, ENVKeys.PROD];
 

@@ -86,7 +86,7 @@ describe('chrome tests', () => {
       transformManifest(
         JSON.parse(`
 			{
-			  "__chrome|opera|edge__manifest_version": 3,
+			  "__chrome|opera|edge|safari__manifest_version": 3,
 			  "__firefox__manifest_version": 2
 			}
         `),
@@ -142,7 +142,7 @@ describe('firefox tests', () => {
       transformManifest(
         JSON.parse(`
 			{
-			  "__chrome|opera|edge__manifest_version": 3,
+			  "__chrome|opera|edge|safari__manifest_version": 3,
 			  "__firefox__manifest_version": 2
 			}
         `),
