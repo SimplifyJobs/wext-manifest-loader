@@ -27,7 +27,7 @@ jobs:
       - name: Gather assets
         id: assets
         run: |
-          LIB_FILES="lib/**/*.*"
+          LIB_FILES="lib/**/*.* package.json"
           echo "::set-output name=lib_files::$LIB_FILES"
 
       - name: Create release tarball
