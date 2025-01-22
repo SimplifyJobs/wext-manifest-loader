@@ -24,19 +24,12 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Gather assets
-        id: assets
-        run: |
-          LIB_FILES="lib/**/*.* package.json"
-          echo "::set-output name=lib_files::$LIB_FILES"
-
       - name: Create release tarball
         id: create_tarball
-        run: |
-          tar -czvf ${{ github.ref_name }}.tgz ${{ steps.assets.outputs.lib_files }}
+        run: npm pack
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ${{ github.ref_name }}.tgz
+            wext-manifest-loader-${{ github.ref_name }}.tgz
