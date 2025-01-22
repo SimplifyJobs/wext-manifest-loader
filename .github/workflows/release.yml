@@ -33,12 +33,10 @@ jobs:
       - name: Create release tarball
         id: create_tarball
         run: |
-          tar -czvf lib/${{ github.ref_name }}.tgz ${{ steps.assets.outputs.lib_files }}
+          tar -czvf ${{ github.ref_name }}.tgz ${{ steps.assets.outputs.lib_files }}
 
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: lib/${{ github.ref_name }}.tgz
-          asset_name: ${{ github.ref_name }}.tgz
-          asset_content_type: application/gzip
+          files: |
+            ${{ github.ref_name }}.tgz
