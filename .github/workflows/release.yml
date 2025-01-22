@@ -24,10 +24,16 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Gather assets
+        id: assets
+        run: |
+          LIB_FILES="lib/**/*.*"
+          echo "::set-output name=lib_files::$LIB_FILES"
+
       - name: Create release tarball
         id: create_tarball
         run: |
-          tar -czvf lib/${{ github.ref_name }}.tgz lib/
+          tar -czvf lib/${{ github.ref_name }}.tgz ${{ steps.assets.outputs.lib_files }}
 
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
