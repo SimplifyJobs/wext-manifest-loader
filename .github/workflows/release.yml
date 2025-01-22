@@ -22,14 +22,17 @@ jobs:
         run: npm install
 
       - name: Build package
-        run: npm run build
+        id: build
+        run: |
+          VERSION=$(jq ".version" package.json -r)
+          echo "::set-output name=version::$VERSION"
+          npm run build
 
       - name: Create release tarball
-        id: create_tarball
         run: npm pack
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            wext-manifest-loader-${{ github.ref_name }}.tgz
+            wext-manifest-loader-${{ steps.build.outputs.version }}.tgz
